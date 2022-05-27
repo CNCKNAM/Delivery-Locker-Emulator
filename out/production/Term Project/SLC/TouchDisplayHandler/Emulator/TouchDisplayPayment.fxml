@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SLC.TouchDisplayHandler.Emulator.TouchDisplayEmulatorController">
+    <children>
+        <AnchorPane onMouseClicked="#td_mouseClick" prefHeight="480.0" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20">
+            <children>
+                <ImageView fitHeight="53.0" fitWidth="55.0" layoutX="31.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+                    <image>
+                        <Image url="@../../Images/back.png" />
+                    </image>
+                </ImageView>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="480.0" layoutY="1.0" stroke="BLACK" strokeType="OUTSIDE" width="640" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+            <Text layoutX="57.0" layoutY="138.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The customer fails to complete the pickup within the first 24 hours after the courier successfully dispatched to the locker. An accumulative fee of HK$10 will be charged for every 24-hour as a unit thereafter." textAlignment="JUSTIFY" underline="true" wrappingWidth="542.109375">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutX="87.0" layoutY="385.0" prefHeight="35.0" prefWidth="233.0">
+               <children>
+                  <Label prefHeight="33.0" prefWidth="142.0" text="Your Late Day:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="lateDayField" editable="true" layoutX="148.0" prefHeight="33.0" prefWidth="85.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="345.0" layoutY="385.0" prefHeight="35.0" prefWidth="196.0">
+               <children>
+                  <Label prefHeight="33.0" prefWidth="126.0" text="Total charge:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="totalChargeField" editable="true" layoutX="133.0" prefHeight="33.0" prefWidth="85.0" />
+               </children>
+            </AnchorPane>
+            <Text fill="#fc0000" layoutX="57.0" layoutY="266.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please settle the payment by using your octopus card" textAlignment="CENTER" wrappingWidth="542.109375">
+               <font>
+                  <Font name="Times New Roman Bold" size="24.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="white" height="42.0" layoutX="264.0" layoutY="319.0" stroke="BLACK" strokeType="OUTSIDE" width="128.0" />
+            <Label layoutX="265.0" layoutY="324.0" prefHeight="33.0" prefWidth="126.0" text="        Get Detail" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7d7d7" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="680.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <Line endX="680.0" endY="520.0" startY="520.0" strokeWidth="2.0" />
+        <GridPane prefHeight="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="91.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="229.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="160.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="160.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Poll Response:   " GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <ChoiceBox fx:id="pollRespCBox" prefHeight="25.0" prefWidth="177.0" value="ACK" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="ACK" />
+                            <String fx:value="NAK" />
+                            <String fx:value="Ignore" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label text="Screen Switcher (for hacking): " GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <ChoiceBox fx:id="screenSwitcherCBox" prefHeight="25.0" prefWidth="177.0" value="Payment" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Blank" />
+                            <String fx:value="Main Menu" />
+                            <String fx:value="Scan Barcode" />
+                            <String fx:value="Enter Passcode" />
+                            <String fx:value="Open Locker" />
+                            <String fx:value="Payment" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
